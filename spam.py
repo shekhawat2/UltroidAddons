@@ -54,7 +54,7 @@ async def spammer(e):
             return await eod(e, "`Use bigspam cmd`")
     except BaseException:
         return await eod(e, "`Use in Proper Format`")
-    await asyncio.wait([e.respond(spam_message) for i in range(counter)])
+    await asyncio.gather(*[e.respond(spam_message) for i in range(counter)])
     await e.delete()
 
 
@@ -74,7 +74,7 @@ async def bigspam(e):
         counter = int(counter)
     except BaseException:
         return await eod(e, "`Use in Proper Format`")
-    await asyncio.wait([e.respond(spam_message) for i in range(counter)])
+    await asyncio.gather(*[e.respond(spam_message) for i in range(counter)])
     await e.delete()
 
 
